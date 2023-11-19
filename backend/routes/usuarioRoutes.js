@@ -1,20 +1,17 @@
 import express from "express";
 const router = express.Router();
 
-router.get("/", (req, res)=>{
-    res.send("Desde API/USUARIOS");
-});
-router.get("/confirmar", (req, res)=>{
-    res.send("CONFIRMANDO USUARIO");
-});
-router.post("/", (req, res)=>{
-    res.send("Desde -POST - API/USUARIOS");
-});
-router.put("/", (req, res)=>{
-    res.send("Desde -PUT - API/USUARIOS");
-});
-router.delete("/", (req, res)=>{
-    res.send("Desde -DELETE - API/USUARIOS");
-});
+import { 
+    registrar,
+    autenticar,
+    confirmar,
+    olvidePassword,
+} from "../controllers/usuarioController.js"
+
+// Autenticacion, Registro y Confirmacion de Usuarios 用户认证、注册和确认
+router.post('/', registrar); // Creacion de usuarios 创建用户
+router.post("/login", autenticar)
+router.get('/confirmar/:token', confirmar)
+router.post('/olvide-password', olvidePassword)
 
 export default router;
