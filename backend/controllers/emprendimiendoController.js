@@ -37,7 +37,10 @@ const obtenerEmprendimiendo = async (req, res) =>{
 
 const editarEmprendimiendo = async (req, res) =>{
     const { id } = req.params
-    const emprendimiendo = await Emprendimiendo.findById(id)
+    const emprendimiendo = await 
+    
+    
+    Emprendimiendo.findById(id)
     if (!emprendimiendo) {
         const error = new Error("No encontrado")
         return res.status(404).json({msg: error.message})
@@ -64,7 +67,7 @@ const editarEmprendimiendo = async (req, res) =>{
 
 const eliminarEmprendimiendo = async (req, res) =>{
     const { id } = req.params
-    const emprendimiendo = await Emprendimiendo.findById(id)
+    const emprendimiendo = await CrearEmprendimiendo.findById(id)
     if (!emprendimiendo) {
         const error = new Error("No encontrado")
         return res.status(404).json({msg: error.message})
@@ -91,4 +94,5 @@ export{
     editarEmprendimiendo,
     eliminarEmprendimiendo,
     obtenerProducto,
+    
 }

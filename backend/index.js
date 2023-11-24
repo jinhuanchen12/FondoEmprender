@@ -3,7 +3,8 @@ import express  from "express";
 import conectarDB from "./config/db.js";
 import dotenv from "dotenv";
 import usuarioRoutes from './routes/usuarioRoutes.js'
-import emprendimiendoRoutes from './routes/emprendimientoRoutes.js'
+import emprendimiendoRoutes from './routes/emprendimiendoRoutes.js'
+
 
 const app = express();
 app.use(express.json())
@@ -14,6 +15,7 @@ conectarDB();
 //Routing 路由
 app.use('/api/usuarios', usuarioRoutes)
 app.use('/api/emprendimiendos', emprendimiendoRoutes)
+
 
 const PORT = process.env.PORT || 4000;
 app.listen(4000, () =>{

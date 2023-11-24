@@ -29,4 +29,5 @@ router
 router.get('/productos/:id', checkAuth, obtenerProducto)
 
 
+
 export default router
