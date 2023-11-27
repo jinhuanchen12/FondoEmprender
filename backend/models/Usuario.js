@@ -7,6 +7,22 @@ const usuarioSchema = mongoose.Schema({
         required: true,
         trim: true
     },
+    apellidos: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    numerodocumento: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    tipoidentificacion: {
+        type: String,
+        required: true,
+        trim: true,
+        enum:['tarjeta identidad', 'cedula ciudadana', 'cedula extrajeria'],
+    },
     password:{
         type: String,
         required: true,

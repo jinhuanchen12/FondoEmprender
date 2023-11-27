@@ -6,7 +6,7 @@ import {
     obtenerEmprendimiendo,
     editarEmprendimiendo,
     eliminarEmprendimiendo,
-    obtenerProducto,
+    obtenerProductos,
 } from '../controllers/emprendimiendoController.js'
 import checkAuth from '../middleware/checkAuth.js'
 
@@ -26,7 +26,7 @@ router
     .put(checkAuth, editarEmprendimiendo)
     .delete(checkAuth, eliminarEmprendimiendo)
 
-router.get('/productos/:id', checkAuth, obtenerProducto)
+router.get('/productos/:id', checkAuth, obtenerProductos)
 
 
 

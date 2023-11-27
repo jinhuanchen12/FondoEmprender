@@ -1,13 +1,17 @@
 import Emprendimiendo from "../models/Emprendimiendo.js"
 
 
-const obtenerEmprendimiendos = async (req, res) =>{
-    const emprendimiendos = await Emprendimiendo.find().where('creador').equals(req.usuario)
-    res.json(emprendimiendos)
+const obtenerEmprendimiendos = async (req, res) => {
+    try {
+        const emprendimiendos = await Emprendimiendo.find({ creador: req.usuario._id });
+        res.json(emprendimiendos);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ msg: 'Error al obtener emprendimientos' });
+    }
+};
 
-}
-
-const nuevoEmprendimiendo = async (req, res) =>{
+const nuevoEmprendimiendo = async (req, res) => {
     const emprendimiendo = new Emprendimiendo(req.body)
     emprendimiendo.creador = req.usuario._id
 
@@ -67,7 +71,7 @@ const editarEmprendimiendo = async (req, res) =>{
 
 const eliminarEmprendimiendo = async (req, res) =>{
     const { id } = req.params
-    const emprendimiendo = await CrearEmprendimiendo.findById(id)
+    const emprendimiendo = await Emprendimiendo.findById(id)
     if (!emprendimiendo) {
         const error = new Error("No encontrado")
         return res.status(404).json({msg: error.message})
@@ -85,7 +89,7 @@ const eliminarEmprendimiendo = async (req, res) =>{
     }
 }
 
-const obtenerProducto = async (req, res) =>{}
+const obtenerProductos = async (req, res) =>{}
 
 export{
     obtenerEmprendimiendos,
@@ -93,6 +97,6 @@ export{
     obtenerEmprendimiendo,
     editarEmprendimiendo,
     eliminarEmprendimiendo,
-    obtenerProducto,
+    obtenerProductos,
     
 }
