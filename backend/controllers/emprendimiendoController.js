@@ -35,7 +35,6 @@ const obtenerEmprendimiendo = async (req, res) =>{
         return res.status(401).json({msg: error.message})
     }
 
-
     res.json(emprendimiendo)
 }
 
