@@ -30,11 +30,11 @@ const corsOptions ={
 app.use(cors(corsOptions))
 
 //Routing 路由
-app.use('/api/usuarios', usuarioRoutes)
-app.use('/api/emprendimiendos', emprendimiendoRoutes)
+app.use('/usuarios', usuarioRoutes)
+app.use('/emprendimiendos', emprendimiendoRoutes)
 
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
+    console.log(`Servidor corriendo en el puerto ${PORT}`)
 });
