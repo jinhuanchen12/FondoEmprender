@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "nodemon": "^3.0.1"
-  },
-  "dependencies": {
-    "mongoose": "^8.0.2"
-  }
-}
